@@ -24,12 +24,12 @@ const getFact = async (URLAddress) => {
     const data = await result.json()
     console.log(data)
     document.getElementById("fact").innerHTML =
-       data.data
+       data.activity + "<br>type: " + data.type + "<br> Requires: " + data.participants + " person"
   } catch (err) {
     console.log(err)
   }
 }
 
 getFact(
-  "https://meowfacts.herokuapp.com/"
+  "https://www.boredapi.com/api/activity"
 )
