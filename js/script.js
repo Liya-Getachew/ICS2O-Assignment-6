@@ -18,21 +18,17 @@ if (navigator.serviceWorker) {
 /**
  * This function displays random cat facts.
  */
-const getFact = async (URLAddress) => {
+const getJoke = async (URLAddress) => {
   try {
     const result = await fetch(URLAddress)
     const data = await result.json()
     console.log(data)
-    document.getElementById("fact").innerHTML = '<a href="' +
-        data.artist_url +
-        '">' +
-        data.artist +
-        "</a>" + '<img src="' + data.url + '" alt="API image" height="200">'
+    document.getElementById("fact").innerHTML = data.setup + "<br><br>" + data.punchline
   } catch (err) {
     console.log(err)
   }
 }
 
-getFact(
-  "https://api.catboys.com/img"
+getJoke(
+  "https://official-joke-api.appspot.com/random_joke"
 )
