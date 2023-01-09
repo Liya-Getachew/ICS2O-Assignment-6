@@ -23,13 +23,16 @@ const getFact = async (URLAddress) => {
     const result = await fetch(URLAddress)
     const data = await result.json()
     console.log(data)
-    document.getElementById("fact").innerHTML =
-       data.activity + "<br>type: " + data.type + "<br> Requires: " + data.participants + " person"
+    document.getElementById("fact").innerHTML = '<a href="' +
+        data.artist_url +
+        '">' +
+        data.artist +
+        "</a>" + '<img src="' + data.url + '" alt="API image" height="200">'
   } catch (err) {
     console.log(err)
   }
 }
 
 getFact(
-  "https://www.boredapi.com/api/activity"
+  "https://api.catboys.com/img"
 )
