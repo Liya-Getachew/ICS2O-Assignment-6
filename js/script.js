@@ -16,14 +16,14 @@ if (navigator.serviceWorker) {
 }
 
 /**
- * This function displays random cat facts.
+ * This function displays random dad jokes.
  */
 const getJoke = async (URLAddress) => {
   try {
     const result = await fetch(URLAddress)
     const data = await result.json()
     console.log(data)
-    document.getElementById("fact").innerHTML = data.setup + "<br><br>" + data.punchline
+    document.getElementById("joke").innerHTML = data.setup + "<br><br>" + data.punchline
   } catch (err) {
     console.log(err)
   }
